@@ -35,7 +35,7 @@ public Drivetrain(){
   rightFrontMotor = new WPI_TalonSRX(RobotMap.RIGHT_FRONT_MOTOR);
   rightBackMotor = new WPI_TalonSRX(RobotMap.RIGHT_BACK_MOTOR);
   leftFrontMotor = new WPI_TalonSRX(RobotMap.LEFT_FRONT_MOTOR);
-  leftBackMotor = new WPI_TalonSRX(RobotMap.RIGHT_BACK_MOTOR);
+  leftBackMotor = new WPI_TalonSRX(RobotMap.LEFT_BACK_MOTOR);
   rightMotors = new SpeedControllerGroup(rightFrontMotor, rightBackMotor);
   leftMotors = new SpeedControllerGroup(leftFrontMotor, leftBackMotor);
   dDrive = new DifferentialDrive(leftMotors, rightMotors);

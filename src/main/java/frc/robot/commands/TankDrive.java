@@ -9,7 +9,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
+
 
 public class TankDrive extends Command {
   public TankDrive() {
@@ -24,8 +24,8 @@ public class TankDrive extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double RightSpeed = Robot.oi.rightJoystick.getRawAxis(RobotMap.DRIVER_CONTROLLER_RIGHT_SPEED);
-    double LeftSpeed = Robot.oi.leftJoystick.getRawAxis(RobotMap.DRIVER_CONTROLLER_LEFT_SPEED);
+    double RightSpeed = Robot.oi.rightJoystick.getY();
+    double LeftSpeed = Robot.oi.leftJoystick.getY();
     Robot.drivetrain.tankDrive(RightSpeed, LeftSpeed);
   }
 
@@ -38,7 +38,7 @@ public class TankDrive extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.drivetrain.tankDrive(0*0.5,0*0.5);
+    Robot.drivetrain.tankDrive(0.5,0.5);
   }
 
   // Called when another command which requires one or more of the same
