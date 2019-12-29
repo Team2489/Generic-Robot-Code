@@ -41,7 +41,7 @@ public Drivetrain(){
   dDrive = new DifferentialDrive(leftMotors, rightMotors);
 }
 public void tankDrive(double RightSpeed, double LeftSpeed){
-  dDrive.tankDrive(RightSpeed,LeftSpeed);
+  dDrive.tankDrive(LeftSpeed,RightSpeed);
 }
   @Override
   public void initDefaultCommand() {
