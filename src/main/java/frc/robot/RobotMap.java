@@ -21,6 +21,8 @@ public class RobotMap {
 	public static final int LEFT_BACK_MOTOR = 4;
 	public static final int RIGHT_JOYSTICK = 1;
 	public static final int LEFT_JOYSTICK = 2;
+	public static final double SPEED_MULTIPLIER = 0.5;
+	
 	
 
 
