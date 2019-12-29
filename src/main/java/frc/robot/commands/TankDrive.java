@@ -26,7 +26,7 @@ public class TankDrive extends Command {
   protected void execute() {
     double RightSpeed = Robot.oi.rightJoystick.getY();
     double LeftSpeed = Robot.oi.leftJoystick.getY();
-    Robot.drivetrain.tankDrive(RightSpeed, LeftSpeed);
+    Robot.drivetrain.tankDrive(LeftSpeed*0.5,RightSpeed*0.5);
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -38,7 +38,7 @@ public class TankDrive extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.drivetrain.tankDrive(0.5,0.5);
+    Robot.drivetrain.tankDrive(0,0);
   }
 
   // Called when another command which requires one or more of the same
