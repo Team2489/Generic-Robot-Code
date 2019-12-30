@@ -28,7 +28,7 @@ public class TankDrive extends Command {
     double RightSpeed = Robot.oi.rightJoystick.getY();
     double LeftSpeed = Robot.oi.leftJoystick.getY();
    
-    Robot.drivetrain.tankDrive(RightSpeed*RobotMap.SPEED_MULTIPLIER,LeftSpeed*RobotMap.SPEED_MULTIPLIER);
+    Robot.drivetrain.tankDrive(LeftSpeed*RobotMap.SPEED_MULTIPLIER,RightSpeed*RobotMap.SPEED_MULTIPLIER);
   }
 
   // Make this return true when this Command no longer needs to run execute()
