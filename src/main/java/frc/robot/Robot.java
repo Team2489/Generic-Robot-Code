@@ -93,7 +93,7 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     double rightSpeed = Robot.oi.rightJoystick.getY();
     double leftSpeed = Robot.oi.leftJoystick.getY();
-    drivetrain.tankDrive(leftSpeed * RobotMap.SPEED_MULTIPLIER, rightSpeed * RobotMap.SPEED_MULTIPLIER)
+    drivetrain.tankDrive(leftSpeed * RobotMap.SPEED_MULTIPLIER, rightSpeed * RobotMap.SPEED_MULTIPLIER);
   }
 
   /**
