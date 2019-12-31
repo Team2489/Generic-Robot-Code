@@ -9,37 +9,29 @@ package frc.robot.subsystems;
 
 
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.RobotMap;
 
-
-
-/**
- * An example subsystem.  You can replace me with your own Subsystem.
- */
 public class Drivetrain {
-  public WPI_TalonSRX rightFrontMotor =null;
-  public WPI_TalonSRX rightBackMotor = null;
-  public WPI_TalonSRX leftFrontMotor = null;
-  public WPI_TalonSRX leftBackMotor = null; 
-  public SpeedControllerGroup rightMotors = null;
-  public SpeedControllerGroup leftMotors = null;
-  DifferentialDrive dDrive = null;
+  public TalonSRX rightFrontMotor;
+  public TalonSRX rightBackMotor;
+  public TalonSRX leftFrontMotor;
+  public TalonSRX leftBackMotor;
 
   public Drivetrain(){
-    rightFrontMotor = new WPI_TalonSRX(RobotMap.RIGHT_FRONT_MOTOR);
-    rightBackMotor = new WPI_TalonSRX(RobotMap.RIGHT_BACK_MOTOR);
-    leftFrontMotor = new WPI_TalonSRX(RobotMap.LEFT_FRONT_MOTOR);
-    leftBackMotor = new WPI_TalonSRX(RobotMap.LEFT_BACK_MOTOR);
-    rightMotors = new SpeedControllerGroup(rightFrontMotor, rightBackMotor);
-    leftMotors = new SpeedControllerGroup(leftFrontMotor, leftBackMotor);
-    dDrive = new DifferentialDrive(leftMotors, rightMotors);
+    rightFrontMotor = new TalonSRX(RobotMap.RIGHT_FRONT_MOTOR);
+    rightBackMotor = new TalonSRX(RobotMap.RIGHT_BACK_MOTOR);
+    leftFrontMotor = new TalonSRX(RobotMap.LEFT_FRONT_MOTOR);
+    leftBackMotor = new TalonSRX(RobotMap.LEFT_BACK_MOTOR);
+
+    rightBackMotor.set(ControlMode.Follower, RobotMap.RIGHT_FRONT_MOTOR);
+    leftBackMotor.set(ControlMode.Follower, RobotMap.LEFT_FRONT_MOTOR);
   }
   
-  public void tankDrive(double RightSpeed, double LeftSpeed){
-    dDrive.tankDrive(LeftSpeed,RightSpeed);
+  public void tankDrive(double leftSpeed, double rightSpeed){
+    leftFrontMotor.set(ControlMode.PercentOutput, leftSpeed);
+    rightFrontMotor.set(ControlMode.PercentOutput, rightSpeed);
   }
 }
