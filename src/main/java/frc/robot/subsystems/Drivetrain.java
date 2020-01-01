@@ -16,7 +16,6 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-import frc.robot.Robot;
 import frc.robot.RobotMap;
 
 
@@ -26,26 +25,18 @@ import frc.robot.RobotMap;
  * An example subsystem.  You can replace me with your own Subsystem.
  */
 public class Drivetrain extends Subsystem {
-TalonSRX rightFrontMaster = new TalonSRX(RobotMap.RIGHT_FRONT_MASTER);;
 TalonSRX rightBackSlave =  new TalonSRX(RobotMap.RIGHT_BACK_SLAVE);
-TalonSRX leftFrontMaster = new TalonSRX(RobotMap.LEFT_FRONT_MASTER);;
+
 TalonSRX leftBackSlave = new TalonSRX(RobotMap.LEFT_BACK_SLAVE);
 
 
 
 
 
-
-public void tankDrive() {
-
-
-  rightFrontMaster.set(ControlMode.PercentOutput,Robot.oi.rightJoystick.getY()*RobotMap.SPEED_MULTIPLIER);
-  leftFrontMaster.set(ControlMode.PercentOutput,Robot.oi.leftJoystick.getY()*RobotMap.SPEED_MULTIPLIER);
+public Drivetrain(){
   rightBackSlave.set(ControlMode.Follower, RobotMap.RIGHT_FRONT_MASTER);
-  leftBackSlave.set(ControlMode.Follower,RobotMap.LEFT_FRONT_MASTER);
- 
+leftBackSlave.set(ControlMode.Follower,RobotMap.LEFT_FRONT_MASTER);
 }
-
 
 
   @Override
