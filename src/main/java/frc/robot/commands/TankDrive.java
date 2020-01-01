@@ -8,13 +8,11 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.Robot;
-import frc.robot.RobotMap;
 
-
-public class TankDrive extends Command {
-  public TankDrive() {
-   requires(Robot.drivetrain);
+public class Tankdrive extends Command {
+  public Tankdrive() {
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
   }
 
   // Called just before this Command runs the first time
@@ -25,10 +23,6 @@ public class TankDrive extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double RightSpeed = Robot.oi.rightJoystick.getY();
-    double LeftSpeed = Robot.oi.leftJoystick.getY();
-   
-    Robot.drivetrain.tankDrive(LeftSpeed*RobotMap.SPEED_MULTIPLIER,RightSpeed*RobotMap.SPEED_MULTIPLIER);
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -40,13 +34,11 @@ public class TankDrive extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.drivetrain.tankDrive(0,0);
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    end();
   }
 }
