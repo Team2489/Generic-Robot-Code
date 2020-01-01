@@ -19,16 +19,17 @@ public class RobotMap {
 	public static final int RIGHT_BACK_MOTOR = 2;
 	public static final int LEFT_FRONT_MOTOR = 3;
 	public static final int LEFT_BACK_MOTOR = 4;
+
 	public static final int RIGHT_JOYSTICK = 1;
 	public static final int LEFT_JOYSTICK = 2;
+
 	public static final double SPEED_MULTIPLIER = 0.5;
 	
-	
+	public static final double WHEEL_DIAMETER = 6.0 / 12.0; // in feet
+	public static final double WHEEL_BASE_WIDTH = 2.0; // in feet
+	public static final double POS_SCALE_FACTOR = (WHEEL_DIAMETER * Math.PI) / 4096.0; // convert sensor unit position to feet
+	public static final double V_SCALE_FACTOR = 10.0 * POS_SCALE_FACTOR; // convert sensor unit velocity to feet per second
 
 
 
-  // If you are using multiple modules, make sure to define both the port
-  // number and the module. For example you with a rangefinder:
-  // public static int rangefinderPort = 1;
-  // public static int rangefinderModule = 1;
 }

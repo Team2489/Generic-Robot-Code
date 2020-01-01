@@ -7,8 +7,6 @@
 
 package frc.robot.subsystems;
 
-
-
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
@@ -20,7 +18,7 @@ public class Drivetrain {
   public TalonSRX leftFrontMotor;
   public TalonSRX leftBackMotor;
 
-  public Drivetrain(){
+  public Drivetrain() {
     rightFrontMotor = new TalonSRX(RobotMap.RIGHT_FRONT_MOTOR);
     rightBackMotor = new TalonSRX(RobotMap.RIGHT_BACK_MOTOR);
     leftFrontMotor = new TalonSRX(RobotMap.LEFT_FRONT_MOTOR);
@@ -30,8 +28,32 @@ public class Drivetrain {
     leftBackMotor.set(ControlMode.Follower, RobotMap.LEFT_FRONT_MOTOR);
   }
   
-  public void tankDrive(double leftSpeed, double rightSpeed){
+  public void tankDrive(double leftSpeed, double rightSpeed) {
     leftFrontMotor.set(ControlMode.PercentOutput, leftSpeed);
     rightFrontMotor.set(ControlMode.PercentOutput, rightSpeed);
+  }
+
+  public double getLeftVelocity() {
+    return leftFrontMotor.getSelectedSensorVelocity() * RobotMap.V_SCALE_FACTOR;
+  }
+
+  public double getRightVelocity() {
+    return rightFrontMotor.getSelectedSensorVelocity() * RobotMap.V_SCALE_FACTOR;
+  }
+
+  public double getTotalVelocity() {
+    return (getLeftVelocity() + getRightVelocity()) / 2.0;
+  }
+
+  public double getAngularVelocity() {
+    return (getLeftVelocity() - getRightVelocity()) / RobotMap.WHEEL_BASE_WIDTH;
+  }
+
+  public double getLeftPosition() {
+    return leftFrontMotor.getSelectedSensorPosition() * RobotMap.POS_SCALE_FACTOR;
+  }
+
+  public double getRightPosition() {
+    return rightFrontMotor.getSelectedSensorPosition() * RobotMap.POS_SCALE_FACTOR;
   }
 }
