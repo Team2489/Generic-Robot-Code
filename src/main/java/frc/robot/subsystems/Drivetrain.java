@@ -32,9 +32,13 @@ TalonSRX leftFrontMaster = new TalonSRX(RobotMap.LEFT_FRONT_MASTER);;
 TalonSRX leftBackSlave = new TalonSRX(RobotMap.LEFT_BACK_SLAVE);
 
 
-; 
+
+
+
 
 public void tankDrive() {
+
+
   rightFrontMaster.set(ControlMode.PercentOutput,Robot.oi.rightJoystick.getY()*RobotMap.SPEED_MULTIPLIER);
   leftFrontMaster.set(ControlMode.PercentOutput,Robot.oi.leftJoystick.getY()*RobotMap.SPEED_MULTIPLIER);
   rightBackSlave.set(ControlMode.Follower, RobotMap.RIGHT_FRONT_MASTER);
