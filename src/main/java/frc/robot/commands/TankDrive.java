@@ -8,14 +8,13 @@
 package frc.robot.commands;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
-public class Tankdrive extends Command {
-  public Tankdrive() {
+public class TankDrive extends Command {
+  public TankDrive() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.drivetrain);
@@ -32,12 +31,8 @@ public class Tankdrive extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-  TalonSRX rightFrontMaster = new TalonSRX(RobotMap.RIGHT_FRONT_MASTER);
-  TalonSRX leftFrontMaster = new TalonSRX(RobotMap.LEFT_FRONT_MASTER);
-    rightFrontMaster.set(ControlMode.PercentOutput,Robot.oi.rightJoystick.getY()*RobotMap.SPEED_MULTIPLIER);
-    leftFrontMaster.set(ControlMode.PercentOutput,Robot.oi.leftJoystick.getY()*RobotMap.SPEED_MULTIPLIER);
-
-
+    Robot.drivetrain.rightFrontMaster.set(ControlMode.PercentOutput,Robot.oi.rightJoystick.getY()*RobotMap.SPEED_MULTIPLIER);
+    Robot.drivetrain.leftFrontMaster.set(ControlMode.PercentOutput,Robot.oi.leftJoystick.getY()*RobotMap.SPEED_MULTIPLIER);
   }
 
   // Make this return true when this Command no longer needs to run execute()
