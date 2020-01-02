@@ -30,6 +30,8 @@ public class Drivetrain extends Subsystem {
   
   TalonSRX rightBackSlave =  new TalonSRX(RobotMap.RIGHT_BACK_SLAVE);
   TalonSRX leftBackSlave = new TalonSRX(RobotMap.LEFT_BACK_SLAVE);
+  public double batteryVoltage = rightFrontMaster.getBusVoltage();
+  public double batteryVoltage1 = leftFrontMaster.getBusVoltage();
 
 
 
