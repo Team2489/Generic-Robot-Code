@@ -15,6 +15,8 @@ package frc.robot;
  */
 public class RobotMap {
 
+	//Values are subjected to change according to CAN ID
+	//Exception: Joystick Constants
 	
 	public static final int RIGHT_JOYSTICK = 1;
 	public static final int LEFT_JOYSTICK = 2;
@@ -23,10 +25,10 @@ public class RobotMap {
 	public static final int RIGHT_BACK_SLAVE = 2;
 	public static final int LEFT_FRONT_MASTER = 3;
 	public static final int LEFT_BACK_SLAVE = 4;
-	public static final int RIGHT_FRONT_SPARK = 0;
-	public static final int RIGHT_BACK_SPARK = 0;
-	public static final int LEFT_FRONT_SPARK = 0;
-	public static final int LEFT_BACK_SPARK = 0;
+	public static final int RIGHT_FRONT_SPARK = 5;
+	public static final int RIGHT_BACK_SPARK = 6;
+	public static final int LEFT_FRONT_SPARK = 7;
+	public static final int LEFT_BACK_SPARK = 8;
 	
 	
 	
