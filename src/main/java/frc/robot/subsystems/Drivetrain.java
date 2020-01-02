@@ -29,8 +29,10 @@ public class Drivetrain {
   }
   
   public void tankDrive(double leftSpeed, double rightSpeed) {
-    leftFrontMotor.set(ControlMode.PercentOutput, -leftSpeed);
-    rightFrontMotor.set(ControlMode.PercentOutput, rightSpeed);
+    double kLVoltage = 12 / leftFrontMotor.getBusVoltage();
+    double kRVoltage = 12 / rightFrontMotor.getBusVoltage();
+    leftFrontMotor.set(ControlMode.PercentOutput, -leftSpeed * kLVoltage);
+    rightFrontMotor.set(ControlMode.PercentOutput, rightSpeed * kRVoltage);
   }
 
   public double getLeftVelocity() {
@@ -46,7 +48,7 @@ public class Drivetrain {
   }
 
   public double getAngularVelocity() {
-    return (getLeftVelocity() - getRightVelocity()) / RobotMap.WHEEL_BASE_WIDTH;
+    return (getLeftVelocity() - getRightVelocity()) / RobotMap.TRACK_WIDTH;
   }
 
   public double getLeftPosition() {
@@ -55,5 +57,9 @@ public class Drivetrain {
 
   public double getRightPosition() {
     return rightFrontMotor.getSelectedSensorPosition() * RobotMap.POS_SCALE_FACTOR;
+  }
+
+  public double getAveragePosition() {
+    return (getLeftPosition() + getRightPosition()) / 2;
   }
 }
