@@ -28,11 +28,8 @@ public class NEOTankDrive extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double kLVoltage = 12 / Robot.drivetrain2.leftFrontSpark.getBusVoltage();
-    double kRVoltage = 12 / Robot.drivetrain2.rightFrontSpark.getBusVoltage();
-    Robot.drivetrain2.rightFrontSpark.set(Robot.oi.rightJoystick.getY() * kLVoltage * RobotMap.SPEED_MULTIPLIER);
-    Robot.drivetrain2.leftFrontSpark.set(Robot.oi.leftJoystick.getY() * kRVoltage * RobotMap.SPEED_MULTIPLIER);
-
+    Robot.drivetrain2.rightFrontSpark.set(Robot.oi.rightJoystick.getY() * RobotMap.SPEED_MULTIPLIER);
+    Robot.drivetrain2.leftFrontSpark.set(Robot.oi.leftJoystick.getY() * RobotMap.SPEED_MULTIPLIER);
   }
 
   // Make this return true when this Command no longer needs to run execute()

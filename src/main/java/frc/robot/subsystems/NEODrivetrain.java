@@ -31,6 +31,9 @@ public class NEODrivetrain extends Subsystem {
   public NEODrivetrain(){
     rightBackSpark.follow(rightFrontSpark, true);
     leftBackSpark.follow(leftFrontSpark, false);
+
+    rightFrontSpark.enableVoltageCompensation(12);
+    leftFrontSpark.enableVoltageCompensation(12);
   }
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
