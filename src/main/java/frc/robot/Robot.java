@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.commands.NEOTankDrive;
 import frc.robot.commands.TankDrive;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.NEODrivetrain;
@@ -28,7 +29,7 @@ public class Robot extends TimedRobot {
   public static OI oi;
   public static NEODrivetrain drivetrain2 = null;
 
-  Command autonomousCommand, driveCommand;
+  Command autonomousCommand, driveCommand, driveCommand2;
   SendableChooser<Command> chooser = new SendableChooser<>();
 
   /**
@@ -42,6 +43,7 @@ public class Robot extends TimedRobot {
     oi = new OI();
     
     driveCommand = new TankDrive();
+    driveCommand2 = new NEOTankDrive();
 
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", chooser);
@@ -121,6 +123,7 @@ public class Robot extends TimedRobot {
 
     if(driveCommand != null) {
       driveCommand.start();
+      // driveCommand2.start();
     }
   }
 
