@@ -29,7 +29,7 @@ public class Drivetrain {
   }
   
   public void tankDrive(double leftSpeed, double rightSpeed) {
-    leftFrontMotor.set(ControlMode.PercentOutput, leftSpeed);
+    leftFrontMotor.set(ControlMode.PercentOutput, -leftSpeed);
     rightFrontMotor.set(ControlMode.PercentOutput, rightSpeed);
   }
 
