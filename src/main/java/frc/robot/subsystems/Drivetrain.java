@@ -35,7 +35,7 @@ public class Drivetrain extends Subsystem {
 
   public Drivetrain() {
     rightBackSlave.set(ControlMode.Follower, RobotMap.RIGHT_FRONT_MASTER);
-    leftBackSlave.set(ControlMode.Follower,RobotMap.LEFT_FRONT_MASTER);
+    leftBackSlave.set(ControlMode.Follower,-RobotMap.LEFT_FRONT_MASTER);
   }
 
 
