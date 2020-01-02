@@ -30,7 +30,7 @@ public class NEODrivetrain extends Subsystem {
   CANSparkMax leftBackSpark = new CANSparkMax(RobotMap.LEFT_BACK_SPARK, MotorType.kBrushless);
   public NEODrivetrain(){
     rightBackSpark.follow(rightFrontSpark, true);
-    leftBackSpark.follow(leftFrontSpark, false);
+    leftBackSpark.follow(leftFrontSpark, true);
 
     rightFrontSpark.enableVoltageCompensation(12);
     leftFrontSpark.enableVoltageCompensation(12);
