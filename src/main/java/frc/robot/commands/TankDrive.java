@@ -31,7 +31,7 @@ public class TankDrive extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.drivetrain.rightFrontMaster.set(ControlMode.PercentOutput,-Robot.oi.rightJoystick.getY()*RobotMap.SPEED_MULTIPLIER);
+    -Robot.drivetrain.rightFrontMaster.set(ControlMode.PercentOutput,Robot.oi.rightJoystick.getY()*RobotMap.SPEED_MULTIPLIER);
     Robot.drivetrain.leftFrontMaster.set(ControlMode.PercentOutput,Robot.oi.leftJoystick.getY()*RobotMap.SPEED_MULTIPLIER);
   }
 
