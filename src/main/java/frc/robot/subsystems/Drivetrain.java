@@ -31,8 +31,8 @@ public class Drivetrain {
   public void tankDrive(double leftSpeed, double rightSpeed) {
     double kLVoltage = 12 / leftFrontMotor.getBusVoltage();
     double kRVoltage = 12 / rightFrontMotor.getBusVoltage();
-    leftFrontMotor.set(ControlMode.PercentOutput, -leftSpeed * kLVoltage);
-    rightFrontMotor.set(ControlMode.PercentOutput, rightSpeed * kRVoltage);
+    leftFrontMotor.set(ControlMode.PercentOutput, leftSpeed * kLVoltage);
+    rightFrontMotor.set(ControlMode.PercentOutput, -rightSpeed * kRVoltage);
   }
 
   public double getLeftVelocity() {
