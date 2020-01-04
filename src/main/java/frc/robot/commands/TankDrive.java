@@ -11,6 +11,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 
 
 import edu.wpi.first.wpilibj.command.Command;
+
 import frc.robot.Robot;
 
 
@@ -35,9 +36,10 @@ public class TankDrive extends Command {
   
   double kLVoltage = 12 /Robot.drivetrain.leftFrontMaster.getBusVoltage();
   double kRVoltage = 12/Robot.drivetrain.rightFrontMaster.getBusVoltage();
-    
+   
 	Robot.drivetrain.rightFrontMaster.set(ControlMode.PercentOutput,-Robot.oi.rightJoystick.getY()*kRVoltage);
   Robot.drivetrain.leftFrontMaster.set(ControlMode.PercentOutput,Robot.oi.leftJoystick.getY()*kLVoltage);
+  
   }
 
   // Make this return true when this Command no longer needs to run execute()
