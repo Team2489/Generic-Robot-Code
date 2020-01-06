@@ -44,6 +44,11 @@ public class NEODrivetrain extends Subsystem {
     leftFrontCanEncoder.getVelocity();
     rightBackCanEncoder.getVelocity();
     leftBackCanEncoder.getVelocity();
+    rightFrontCanEncoder.getPosition();
+    leftFrontCanEncoder.getPosition();
+    rightBackCanEncoder.getPosition();
+    leftBackCanEncoder.getPosition();
+    
     
   }
   public void initDefaultCommand() {
