@@ -8,14 +8,13 @@
 package frc.robot.subsystems;
 
 
-import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
 
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
-
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
+import com.revrobotics.CANEncoder;
 
 
 
@@ -23,36 +22,49 @@ import frc.robot.RobotMap;
  * Add your docs here.
  * 
  */
-public class NEODrivetrain extends Subsystem {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
-  public CANSparkMax rightFrontSpark = new CANSparkMax(RobotMap.RIGHT_FRONT_SPARK, MotorType.kBrushless);
-         CANSparkMax rightBackSpark = new CANSparkMax(RobotMap.RIGHT_BACK_SPARK, MotorType.kBrushless);
-  public CANSparkMax leftFrontSpark = new CANSparkMax(RobotMap.LEFT_FRONT_SPARK,MotorType.kBrushless);
-         CANSparkMax leftBackSpark = new CANSparkMax(RobotMap.LEFT_BACK_SPARK, MotorType.kBrushless);
-  CANEncoder rightFrontCanEncoder = new CANEncoder(rightFrontSpark);
-  CANEncoder rightBackCanEncoder = new CANEncoder(rightBackSpark);
-  CANEncoder leftFrontCanEncoder = new CANEncoder(leftFrontSpark);
-  CANEncoder leftBackCanEncoder = new CANEncoder(leftBackSpark);
-  public NEODrivetrain(){
+
+public class NEODriveTrain extends Subsystem{
+
+  CANSparkMax rightFrontSpark = new CANSparkMax(RobotMap.RIGHT_FRONT_MASTER, MotorType.kBrushless);
+  CANSparkMax rightBackSpark = new CANSparkMax(RobotMap.RIGHT_BACK_SLAVE, MotorType.kBrushless);
+  CANSparkMax leftFrontSpark = new CANSparkMax(RobotMap.LEFT_FRONT_MASTER, MotorType.kBrushless);
+  CANSparkMax leftBackSpark = new CANSparkMax(RobotMap.LEFT_BACK_SLAVE, MotorType.kBrushless);
+  CANEncoder leftEncoder;
+  CANEncoder rightEncoder;
+
+  public NEODriveTrain(){
     rightBackSpark.follow(rightFrontSpark, true);
     leftBackSpark.follow(leftFrontSpark, true);
-
     rightFrontSpark.enableVoltageCompensation(12);
     leftFrontSpark.enableVoltageCompensation(12);
-    rightFrontCanEncoder.getVelocity();
-    leftFrontCanEncoder.getVelocity();
-    rightBackCanEncoder.getVelocity();
-    leftBackCanEncoder.getVelocity();
-    rightFrontCanEncoder.getPosition();
-    leftFrontCanEncoder.getPosition();
-    rightBackCanEncoder.getPosition();
-    leftBackCanEncoder.getPosition();
-    
-    
+    rightEncoder = rightFrontSpark.getEncoder();
+    leftEncoder = leftFrontSpark.getEncoder();
   }
+
+  public void tankDrive(double leftSpeed, double rightSpeed) {
+    leftFrontSpark.set(leftSpeed);
+    rightFrontSpark.set(rightSpeed);
+  }
+
+  public double getLeftVelocity() {
+    return leftEncoder.getVelocity() / RobotMap.CHASSIS_GEAR_RATIO;
+  }
+
+  public double getRightVelocity() {
+    return rightEncoder.getVelocity() / RobotMap.CHASSIS_GEAR_RATIO;
+  }
+
+  public double getLeftPosition() {
+    return leftEncoder.getPosition() / RobotMap.CHASSIS_GEAR_RATIO;
+  }
+
+  public double getRightPosition() {
+    return rightEncoder.getPosition() / RobotMap.CHASSIS_GEAR_RATIO;
+  }
+
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
+
 }
