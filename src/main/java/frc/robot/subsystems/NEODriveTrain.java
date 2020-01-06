@@ -46,19 +46,19 @@ public class NEODriveTrain {
   }
 
   public double getLeftVelocity() {
-    return leftEncoder.getVelocity();
+    return leftEncoder.getVelocity() / RobotMap.CHASSIS_GEAR_RATIO;
   }
 
   public double getRightVelocity() {
-    return rightEncoder.getVelocity();
+    return rightEncoder.getVelocity() / RobotMap.CHASSIS_GEAR_RATIO;
   }
 
   public double getLeftPosition() {
-    return leftEncoder.getPosition();
+    return leftEncoder.getPosition() / RobotMap.CHASSIS_GEAR_RATIO;
   }
 
   public double getRightPosition() {
-    return rightEncoder.getPosition();
+    return rightEncoder.getPosition() / RobotMap.CHASSIS_GEAR_RATIO;
   }
 
   public void initDefaultCommand() {

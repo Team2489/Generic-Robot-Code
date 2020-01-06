@@ -25,6 +25,7 @@ public class RobotMap {
 
 	public static final double SPEED_MULTIPLIER = 0.5;
 	
+	public static double CHASSIS_GEAR_RATIO = 10.75;
 	public static final double WHEEL_DIAMETER = 6.0 / 12.0; // in feet
 	public static final double TRACK_WIDTH = 2.0; // in feet
 	public static final double POS_SCALE_FACTOR = (WHEEL_DIAMETER * Math.PI) / 4096.0; // convert sensor unit position to feet
