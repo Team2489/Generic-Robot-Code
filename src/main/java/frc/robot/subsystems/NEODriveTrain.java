@@ -22,7 +22,7 @@ import com.revrobotics.CANEncoder;
  * Add your docs here.
  * 
  */
-public class NEODriveTrain extends Subsystem {
+public class NEODriveTrain {
 
   CANSparkMax rightFrontSpark = new CANSparkMax(RobotMap.RIGHT_FRONT_MOTOR, MotorType.kBrushless);
   CANSparkMax rightBackSpark = new CANSparkMax(RobotMap.RIGHT_BACK_MOTOR, MotorType.kBrushless);
