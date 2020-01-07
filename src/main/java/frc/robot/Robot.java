@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.NEOTankDrive;
 import frc.robot.commands.TankDrive;
 import frc.robot.subsystems.Drivetrain;
-import frc.robot.subsystems.NEODrivetrain;
+import frc.robot.subsystems.NEODriveTrain;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -25,9 +25,9 @@ import frc.robot.subsystems.NEODrivetrain;
  * project.
  */
 public class Robot extends TimedRobot {
-  public static Drivetrain drivetrain = null;
+  public static Drivetrain drivetrain;
   public static OI oi;
-  public static NEODrivetrain drivetrain2 = null;
+  public static NEODriveTrain drivetrain2;
 
   Command autonomousCommand, driveCommand, driveCommand2;
   SendableChooser<Command> chooser = new SendableChooser<>();
@@ -39,7 +39,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     drivetrain = new Drivetrain();
-    drivetrain2 = new NEODrivetrain();
+    drivetrain2 = new NEODriveTrain();
     oi = new OI();
     
     driveCommand = new TankDrive();
@@ -133,7 +133,6 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
-    
   }
 
   /**

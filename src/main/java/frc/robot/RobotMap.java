@@ -25,12 +25,6 @@ public class RobotMap {
 	public static final int RIGHT_BACK_SLAVE = 2;
 	public static final int LEFT_FRONT_MASTER = 3;
 	public static final int LEFT_BACK_SLAVE = 4;
-	public static final int RIGHT_FRONT_SPARK = 5;
-	public static final int RIGHT_BACK_SPARK = 6;
-	public static final int LEFT_FRONT_SPARK = 7;
-	public static final int LEFT_BACK_SPARK = 8;
+	public static final double CHASSIS_GEAR_RATIO = 10.75;
 	
-	
-	
-
 }
